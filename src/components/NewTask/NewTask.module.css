@@ -1,0 +1,38 @@
+
+.newtask {
+    display: flex;
+    align-items: center;
+}
+
+.newtask input {
+    border: 0;
+    width: 39.87rem;
+    border-radius: 8px;
+    color: var(--gray-300);
+    background-color: var(--gray-500);
+    border-color: var(--gray-700);
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.newtask button {
+    margin-left: .5rem;
+    border: 0;
+    width: 5.62rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--blue-dark);
+    color: var(--gray-100);
+    font-weight: bold;
+    font-size: 0.87rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.newtask button img {
+    margin-left: 5px;
+}
+

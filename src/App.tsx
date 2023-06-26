@@ -1,19 +1,18 @@
 
 import styles from './App.module.css';
-
-import Logo from './assets/Logo.png';
+import Header from './components/Header/Header';
 
 function App() {
 
   return (
     <>
-      <header className={styles.header}>
-        <img src={Logo} alt="Logo todo list" />
-      </header>
+
+      <Header />
 
       <main className={styles.main}>
 
       </main>
+      
     </>
   )
 }
