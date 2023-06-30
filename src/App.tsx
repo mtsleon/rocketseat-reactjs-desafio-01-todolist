@@ -11,8 +11,26 @@ function App() {
 
       <main className={styles.main}>
 
+        <div className={styles.bar}>
+
+          <div>
+            <span>Tarefas criadas</span>
+            <span>0</span>
+          </div>
+
+          <div>
+            <span>Concluídas</span>
+            <span>0</span>
+          </div>
+
+        </div>
+
+        <div className={styles.taskList}>
+
+        </div>
+
       </main>
-      
+
     </>
   )
 }
