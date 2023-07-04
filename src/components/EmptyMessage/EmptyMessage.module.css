@@ -1,0 +1,24 @@
+
+.emptyMessage {
+    text-align: center;
+}
+
+.emptyMessage img {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.emptyMessage .messageBox {
+    text-align: center;
+}
+
+.emptyMessage .emptyListMessageTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--gray-300);
+}
+
+.emptyMessage span {
+    font-weight: regular;
+    color: var(--gray-300);
+}
