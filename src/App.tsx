@@ -1,37 +1,15 @@
 
 import styles from './App.module.css';
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 function App() {
 
   return (
-    <>
-
+    <div className={styles.container}>
       <Header />
-
-      <main className={styles.main}>
-
-        <div className={styles.bar}>
-
-          <div>
-            <span>Tarefas criadas</span>
-            <span>0</span>
-          </div>
-
-          <div>
-            <span>Concluídas</span>
-            <span>0</span>
-          </div>
-
-        </div>
-
-        <div className={styles.taskList}>
-
-        </div>
-
-      </main>
-
-    </>
+      <Main />
+    </div>
   )
 }
 
