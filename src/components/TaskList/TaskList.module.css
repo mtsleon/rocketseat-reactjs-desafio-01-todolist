@@ -4,7 +4,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.75rem;
 
     border-top: 1px solid var(--gray-400);
     border-radius: 8px;
+
+    width: 100%;
+    object-fit: cover;
 }
