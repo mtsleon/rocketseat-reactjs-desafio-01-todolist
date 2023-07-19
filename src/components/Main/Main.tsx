@@ -37,12 +37,17 @@ export default function Main() {
     function handleAddTask(event: any) {
         event.preventDefault();
         const taskName = event.target.task.value;
-        setTasks([...tasks, { id: 1, name: taskName, idDone: false }]);
+        setTasks([...tasks, { id: tasks.length+1, name: taskName, idDone: false }]);
         setTextNewTask('');
     }
 
     function handleNewTaskChange(event: any) {
         setTextNewTask(event.target.value);
+    }
+
+    function handleDeleteTask(id: number) {
+        console.log(`sinalizando item a ser excluido..: ${id}`);
+        
     }
 
     return (
@@ -86,6 +91,7 @@ export default function Main() {
                                         id={task.id}
                                         name={task.name}
                                         isDone={task.isDone}
+                                        delete={() => handleDeleteTask(task.id)}
                                     />
                                 )
                             })
