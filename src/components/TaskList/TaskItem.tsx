@@ -3,8 +3,9 @@ import styles from './TaskItem.module.css';
 import Trash from '../../assets/trash.svg';
 import { Check } from 'phosphor-react';
 
-type TaskItemProps = {
-    title: string;
+interface TaskItemProps {
+    id: number;
+    name: string;
     isDone: boolean;
 }
 export default function TaskItem(props: TaskItemProps) {
@@ -13,9 +14,9 @@ export default function TaskItem(props: TaskItemProps) {
             <div className={props.isDone ? styles.checkboxDone : styles.checkboxDefault}>
                 {props.isDone ? <Check size={15} className={styles.checkDoneIcon} /> : ''}
             </div>
-            <span className={props.isDone ? styles.titleDone : styles.title}>
-                {props.title}
-            </span>
+            <div className={props.isDone ? styles.titleDone : styles.title}>
+                {props.name}
+            </div>
             <div><img src={Trash} className={styles.trashIcon} /></div>
         </div>
     )

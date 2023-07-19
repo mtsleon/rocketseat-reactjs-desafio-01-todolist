@@ -1,5 +1,6 @@
 
-.newtask {
+.newtask form {
+    width: 47.6rem;
     display: flex;
     align-items: center;
 }

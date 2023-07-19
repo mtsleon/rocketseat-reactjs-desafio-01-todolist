@@ -9,7 +9,6 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <img className={styles.logo} src={Logo} alt="Logo todo list" />
-            
             <NewTask />
         </header>
     )

@@ -40,6 +40,9 @@
     color: var(--gray-100);
     font-size: 0.875rem;
     margin-left: -46.27px;
+    text-align: left;
+    width: 86%;
+    height: auto;
 }
 
 .taskItem .titleDone {
@@ -47,6 +50,9 @@
     font-size: 0.875rem;
     margin-left: -46.27px;
     text-decoration: line-through;
+    text-align: left;
+    width: 86%;
+    height: auto;
 }
 
 .taskItem .trashIcon {
