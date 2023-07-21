@@ -46,8 +46,9 @@ export default function Main() {
     }
 
     function handleDeleteTask(id: number) {
-        console.log(`sinalizando item a ser excluido..: ${id}`);
-        
+        const deleted = tasks.filter( (item:any) => item.id != id);
+        console.log(deleted)
+        setTasks(deleted);
     }
 
     return (
