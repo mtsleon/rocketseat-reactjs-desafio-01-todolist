@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useInsertionEffect, useState } from 'react';
 import { PlusCircle } from 'phosphor-react';
 import styles from './Main.module.css';
 
@@ -8,35 +8,30 @@ import newTaskStyles from '../NewTask/NewTask.module.css';
 import TaskItem from '../TaskList/TaskItem';
 import EmptyMessage from '../EmptyMessage/EmptyMessage';
 
-export interface Task {
-    id: number;
-    name: string;
-    isDone: boolean;
-}
 export default function Main() {
 
-    const [tasks, setTasks]: any = useState([
+    const [tasks, setTasks] = useState([
         {
             id: 1,
             name: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-            isDone: false,
+            state: 'default'
         },
         {
             id: 2,
             name: "String urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-            isDone: false,
+            state: 'default'
         },
         {
             id: 3,
             name: "Boolean urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-            isDone: false,
+            state: 'default'
         },
     ]);
     const [textNewTask, setTextNewTask] = useState('');
     const [error, setError] = useState({
         hasError: false,
         message: ''
-    })
+    });
 
     function handleAddTask(event: any) {
         event.preventDefault();
@@ -50,7 +45,7 @@ export default function Main() {
             return;
         }
 
-        setTasks([...tasks, { id: getTotalCreated() + 1, name: taskName, idDone: false }]);
+        setTasks([...tasks, { id: getTotalCreated() + 1, name: taskName, state: 'default' }]);
         setTextNewTask('');
 
 
@@ -79,6 +74,17 @@ export default function Main() {
 
     function getTotalCreated() {
         return tasks.length;
+    }
+
+    function handleChangeState(id: number) {
+        const updatedTask = tasks.filter(task => {
+            if (task.id === id) {
+                task.state = (task.state === 'done') ? 'default' : 'done';
+            }
+            return task;
+        });
+
+        setTasks(updatedTask);
     }
 
     return (
@@ -125,8 +131,9 @@ export default function Main() {
                                         key={task.id}
                                         id={task.id}
                                         name={task.name}
-                                        isDone={task.isDone}
-                                        delete={() => handleDeleteTask(task.id)}
+                                        state={task.state === 'default' ? 'default' : 'done'}
+                                        onDeleteTask={() => handleDeleteTask(task.id)}
+                                        onChangeState={() => handleChangeState(task.id)}
                                     />
                                 )
                             })

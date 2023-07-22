@@ -17,6 +17,12 @@
     width: 17.45px;
     height: 17.45px;
     border: 2px solid var(--blue);
+    background: transparent;
+}
+
+.taskItem .checkboxDefault:hover {
+    background-color: rgba( var(--purple-dark-opacity), 0.2);
+    border-color: var(--purple-dark);
 }
 
 .taskItem .checkboxDone {
@@ -37,6 +43,7 @@
 }
 
 .taskItem .title {
+    text-decoration: none;
     color: var(--gray-100);
     font-size: 0.875rem;
     margin-left: -46.27px;
