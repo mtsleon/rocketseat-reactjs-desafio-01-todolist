@@ -11,7 +11,7 @@ interface TaskItemProps {
 }
 export default function TaskItem(props: TaskItemProps) {
     return (
-        <div className={styles.taskItem}>
+        <div className={styles.taskItem} key={props.id}>
             <div className={props.isDone ? styles.checkboxDone : styles.checkboxDefault}>
                 {props.isDone ? <Check size={15} className={styles.checkDoneIcon} /> : ''}
             </div>

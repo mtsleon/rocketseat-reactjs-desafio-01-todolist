@@ -18,6 +18,7 @@ export default function TaskList(tasks: Task[]) {
                                 id={task.id}
                                 name={task.name}
                                 isDone={task.isDone}
+                                delete={ () => {}}
                             />
                         )
                     })

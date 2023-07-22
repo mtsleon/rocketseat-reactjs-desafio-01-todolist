@@ -33,21 +33,48 @@ export default function Main() {
         },
     ]);
     const [textNewTask, setTextNewTask] = useState('');
+    const [error, setError] = useState({
+        hasError: false,
+        message: ''
+    })
 
     function handleAddTask(event: any) {
         event.preventDefault();
         const taskName = event.target.task.value;
-        setTasks([...tasks, { id: getTotalCreated()+1, name: taskName, idDone: false }]);
+        if (taskName === '') {
+            setError({
+                hasError: true,
+                message: 'Oops :( Você ainda não escreveu o nome da tarefa.'
+            });
+            event.target.task.focus();
+            return;
+        }
+
+        setTasks([...tasks, { id: getTotalCreated() + 1, name: taskName, idDone: false }]);
         setTextNewTask('');
+
+
     }
 
     function handleNewTaskChange(event: any) {
         setTextNewTask(event.target.value);
+
+        if (event.target.value) {
+            setError({
+                hasError: false,
+                message: ''
+            })
+        }
     }
 
     function handleDeleteTask(id: number) {
-        const deleted = tasks.filter( (item:any) => item.id != id);
+        const deleted = tasks.filter((item: any) => item.id != id);
         setTasks(deleted);
+
+        setError({
+            hasError: false,
+            message: ''
+        })
     }
 
     function getTotalCreated() {
@@ -62,13 +89,17 @@ export default function Main() {
                     <form onSubmit={handleAddTask}>
                         <input
                             type="text"
-                            placeholder='Adicione uma nova tarefa'
+                            placeholder={(error.hasError) ? error.message : 'Adicione uma nova tarefa'}
                             name="task"
                             value={textNewTask}
                             onChange={handleNewTaskChange}
+                            className={
+                                (error.hasError) ? newTaskStyles.inputError : ''
+                            }
                         />
                         <button type="submit">Criar <PlusCircle size={16} /></button>
                     </form>
+
                 </div>
             </header>
 
