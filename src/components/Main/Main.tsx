@@ -74,7 +74,7 @@ export default function Main() {
 
     function getTotalCreated() {
         return tasks.length;
-    }
+    }    
 
     function handleChangeState(id: number) {
         const updatedTask = tasks.filter(task => {
@@ -85,6 +85,11 @@ export default function Main() {
         });
 
         setTasks(updatedTask);
+    }
+
+    function getTotalDones() {
+        let dones:any[] = tasks.filter(task => task.state === 'done');
+        return dones.length;
     }
 
     return (
@@ -118,7 +123,7 @@ export default function Main() {
                     </div>
                     <div className={styles.indicator}>
                         <label>Concluídas</label>
-                        <span>2 de {getTotalCreated()}</span>
+                        <span>{getTotalDones()} de {getTotalCreated()}</span>
                     </div>
                 </div>
 
