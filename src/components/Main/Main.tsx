@@ -37,7 +37,7 @@ export default function Main() {
     function handleAddTask(event: any) {
         event.preventDefault();
         const taskName = event.target.task.value;
-        setTasks([...tasks, { id: tasks.length+1, name: taskName, idDone: false }]);
+        setTasks([...tasks, { id: getTotalCreated()+1, name: taskName, idDone: false }]);
         setTextNewTask('');
     }
 
@@ -47,8 +47,11 @@ export default function Main() {
 
     function handleDeleteTask(id: number) {
         const deleted = tasks.filter( (item:any) => item.id != id);
-        console.log(deleted)
         setTasks(deleted);
+    }
+
+    function getTotalCreated() {
+        return tasks.length;
     }
 
     return (
@@ -74,17 +77,17 @@ export default function Main() {
                 <div className={styles.indicatorsBar}>
                     <div className={styles.indicator}>
                         <label>Tarefas criadas</label>
-                        <span>0</span>
+                        <span>{getTotalCreated()}</span>
                     </div>
                     <div className={styles.indicator}>
                         <label>Concluídas</label>
-                        <span>2 de 5</span>
+                        <span>2 de {getTotalCreated()}</span>
                     </div>
                 </div>
 
                 <div className={styles.taskList}>
                     {
-                        (tasks.length !== 0) ?
+                        (getTotalCreated() !== 0) ?
                             tasks.map(task => {
                                 return (
                                     <TaskItem
