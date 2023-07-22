@@ -1,7 +1,6 @@
 
 import styles from './TaskItem.module.css';
-import Trash from '../../assets/trash.svg';
-import { Check } from 'phosphor-react';
+import { Check, Trash } from 'phosphor-react';
 
 interface TaskItemProps {
     id: number;
@@ -24,7 +23,14 @@ export default function TaskItem({ id, name, state, onDeleteTask, onChangeState 
                 onClick={() => { onChangeState(id) }}>
                 {name}
             </a>
-            <div><img src={Trash} className={styles.trashIcon} onClick={() => onDeleteTask(id)} /></div>
+            <a
+                href="#"
+                onClick={() => onDeleteTask(id)}
+                className={styles.trashIconLink}
+                title='Excluir Tarefa'
+            >
+                <Trash className={styles.trashIcon} />
+            </a>
         </div>
     )
 }

@@ -62,7 +62,27 @@
     height: auto;
 }
 
+.taskItem .trashIconLink {
+    text-decoration: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskItem .trashIconLink:hover {
+    background-color: var(--gray-400);
+}
+
+.taskItem .trashIconLink:hover .trashIcon {
+    color: var(--danger);
+}
+
 .taskItem .trashIcon {
-    width: 12.48px;
-    height: 14px;
+    /* width: 12.48px; */
+    /* height: 14px; */
+    color: var(--gray-300);
 }

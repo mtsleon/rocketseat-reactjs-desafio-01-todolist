@@ -17,6 +17,12 @@
     padding: 1rem;
 }
 
+.newtask input:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 1px var(--purple-dark);
+    color: var(--gray-100);
+}
+
 .newtask button {
     margin-left: .5rem;
     border: 0;
@@ -34,8 +40,9 @@
     gap: 8px;
 }
 
-.newtask button img {
-    margin-left: 5px;
+.newtask button:hover {
+    background-color: var(--blue);
+    color: var(--gray-100);
 }
 
 .newtask .inputError {
@@ -47,5 +54,7 @@
     background-color: transparent;
     padding: 8px 15px;
     font-size: 0.857rem;
+    outline: none;
 }
+
 

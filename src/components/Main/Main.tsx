@@ -1,4 +1,4 @@
-import { useInsertionEffect, useState } from 'react';
+import { useState } from 'react';
 import { PlusCircle } from 'phosphor-react';
 import styles from './Main.module.css';
 
